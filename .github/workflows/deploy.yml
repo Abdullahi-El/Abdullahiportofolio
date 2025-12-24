@@ -32,7 +32,7 @@ jobs:
           Compress-Archive -Path publish\* -DestinationPath deploy.zip
 
       - name: Deploy to Elastic Beanstalk
-        uses: https://github.com/Abdullahi-El/Abdullahiportofolio-deploy@v21
+        uses: einaregilsson/beanstalk-deploy@v21
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -41,4 +41,3 @@ jobs:
           region: ${{ secrets.AWS_REGION }}
           version_label: ${{ github.run_number }}
           deployment_package: deploy.zip
-
